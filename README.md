@@ -5,7 +5,7 @@ Benvenuto in **The Shark Web App**, una piattaforma pensata per la gestione mode
  ## 📸 Screenshots
 
 <p align="center">
-  <img src="assets/homepage.png" width="30%"/>
+  <img src="assets/homepage.png" width="50%"/>
   <img src="assets/prenotazioni.png" width="30%"/>
   <img src="assets/admin.png" width="30%"/>
   <img src="assets/dashboard.png" width="30%"/>
