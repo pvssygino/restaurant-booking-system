@@ -4,8 +4,8 @@ Benvenuto in **The Shark Web App**, una piattaforma pensata per la gestione mode
 
  ## 📸 Homepage
 
-  <img src="assets/homepage.png" width="50%"/>
-  <img src="assets/homepage2.png" width="50%"/>
+  <img src="assets/homepage.png" width="40%"/>
+  <img src="assets/homepage2.png" width="40%"/>
 
 
 Questo progetto nasce con l’obiettivo di digitalizzare e semplificare:
