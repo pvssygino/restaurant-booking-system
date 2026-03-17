@@ -1,78 +1,159 @@
-# Ristorante Real V2
+# 🍽️ The Shark – Sistema Web per Ristoranti
 
-## Avvio locale
+Benvenuto in **The Shark Web App**, una piattaforma pensata per la gestione moderna di ristoranti e locali.
+
+Questo progetto nasce con l’obiettivo di digitalizzare e semplificare:
+- Prenotazioni tavoli
+- Gestione eventi (es. Beer Pong)
+- Interazione cliente–locale
+- Esperienza utente tramite interfaccia moderna
+
+---
+
+## 🚀 Funzionalità principali
+
+✔️ Prenotazione tavoli online  
+✔️ Prenotazione ombrelloni (se applicabile)  
+✔️ Gestione tornei Beer Pong con:
+- Generazione automatica tabellone
+- Visualizzazione grafica
+- Selezione vincitori
+
+✔️ Interfaccia responsive (mobile-friendly)  
+✔️ UI moderna e personalizzabile  
+✔️ Integrazione futura con sistemi di pagamento online  
+
+---
+
+## 🧩 Tecnologie utilizzate
+
+- HTML / CSS / JavaScript
+- (Opzionale) Backend con Supabase
+- Hosting: Vercel (consigliato)
+- Database: Supabase / PostgreSQL
+
+---
+
+## 📦 Installazione e utilizzo in locale
+
+### 1. Clona il repository
 
 ```bash
-npm install
-npm run dev
+git clone https://github.com/tuo-username/nome-repo.git
+cd nome-repo
 ```
 
-## Variabili ambiente client
+---
 
-Copia `.env.example` in `.env` e imposta:
+### 2. Avvia il progetto in locale
 
-- `VITE_SUPABASE_URL`
-- `VITE_SUPABASE_ANON_KEY`
+Hai diverse opzioni:
 
-## Variabili ambiente server su Vercel
+#### 🔹 Metodo semplice (consigliato)
 
-Aggiungi anche queste nelle Project Settings di Vercel:
+Apri direttamente il file:
 
-- `SUPABASE_URL`
-- `SUPABASE_SERVICE_ROLE_KEY`
-- `STRIPE_SECRET_KEY`
-- `STRIPE_WEBHOOK_SECRET`
-- `PAYPAL_CLIENT_ID`
-- `PAYPAL_CLIENT_SECRET`
-- `PAYPAL_ENV`
+```bash
+index.html
+```
 
-## Database
+oppure cliccaci sopra due volte.
 
-Esegui `supabase/schema.sql` nel SQL Editor del progetto Supabase.
+---
 
-## Pagamenti reali
+#### 🔹 Metodo con server locale (consigliato per sviluppo)
 
-### Carta / debito
-Il progetto usa **Stripe Checkout** tramite l'endpoint:
-- `api/payments/create-stripe-session.js`
+Se hai Node.js installato:
 
-Webhook Stripe:
-- `api/payments/stripe-webhook.js`
+```bash
+npx serve
+```
 
-Verifica redirect success:
-- `api/payments/stripe-success.js`
+oppure con Python:
 
-### PayPal
-Il progetto usa **PayPal Orders API** tramite:
-- `api/payments/create-paypal-order.js`
-- `api/payments/capture-paypal-order.js`
+```bash
+python -m http.server 8080
+```
 
-## Cosa devi configurare per metterlo davvero in produzione
+Poi apri nel browser:
 
-### Stripe
-1. Crea account Stripe.
-2. Copia chiave test o live in `STRIPE_SECRET_KEY`.
-3. In Stripe crea un webhook verso:
-   - `https://tuodominio.it/api/payments/stripe-webhook`
-4. Copia il signing secret in `STRIPE_WEBHOOK_SECRET`.
-5. In modalità test puoi usare le carte di test ufficiali di Stripe.
+```
+http://localhost:8080
+```
 
-### PayPal
-1. Crea una app su PayPal Developer.
-2. Copia `Client ID` e `Client Secret`.
-3. Imposta `PAYPAL_ENV=sandbox` per test oppure `live` per produzione.
-4. Se vuoi, puoi aggiungere anche un webhook PayPal in futuro; il progetto aggiorna già lo stato tramite il capture endpoint di ritorno.
+---
 
-## Note funzionali
+## ⚙️ Configurazione (se utilizzi Supabase)
 
-- Ombrellone e Beer Pong permettono pagamento in loco, Stripe Checkout o PayPal.
-- Ristorante resta pagabile solo in presenza.
-- La dashboard admin mostra stato prenotazione, stato pagamento, importi e lista Beer Pong.
-- La lista Beer Pong include solo iscrizioni con pagamento in loco o pagamento online riuscito.
+Se il progetto utilizza Supabase:
 
+1. Crea un progetto su Supabase
+2. Inserisci le chiavi API nel file di configurazione (es. `config.js`)
+3. Configura le tabelle necessarie:
+   - prenotazioni
+   - eventi
+   - partecipanti
 
-## Variabili ambiente aggiuntive
-Per attivare email automatiche base usa Resend impostando `RESEND_API_KEY`, `FROM_EMAIL` e `OWNER_NOTIFICATION_EMAIL`. Se mancano, il sito continua a funzionare ma non invia email.
+---
 
-## Privacy
-La prenotazione richiede il consenso privacy. Se aggiorni Supabase, riesegui `supabase/schema.sql` per aggiungere `privacy_accepted` e `privacy_accepted_at`.
+## 🌐 Deploy online
+
+Il progetto può essere facilmente pubblicato con:
+
+### 🔹 Vercel (consigliato)
+
+1. Vai su https://vercel.com  
+2. Collega il repository GitHub  
+3. Deploy automatico 🚀  
+
+---
+
+## 💡 Integrazione con sistemi esterni (TheFork)
+
+Questo sistema può essere utilizzato in due modi:
+
+- **Standalone** → gestisci tutto dal tuo sito
+- **Integrato con TheFork** → reindirizzamento o sincronizzazione
+
+👉 Consiglio:
+Se usi già TheFork per la gestione fiscale, puoi:
+- mantenere TheFork come backend prenotazioni
+- usare questo sito come frontend personalizzato
+
+---
+
+## 📌 Note importanti
+
+- Il sistema è altamente personalizzabile
+- Può essere adattato a qualsiasi ristorante o locale
+- È pensato per essere espandibile (pagamenti, notifiche, ecc.)
+
+---
+
+## 🔮 Sviluppi futuri
+
+- Pagamenti online integrati
+- Dashboard amministratore
+- Notifiche automatiche
+- Integrazione WhatsApp / Email
+- Sistema login utenti
+
+---
+
+## 👨‍💻 Autore
+
+Progetto sviluppato da **[TUO NOME]**
+
+---
+
+## 📄 Licenza
+
+Questo progetto è open-source e può essere modificato liberamente.
+
+---
+
+## ⭐ Supporto
+
+Se ti piace il progetto:
+- lascia una ⭐ su GitHub
+- oppure contribuisci!
